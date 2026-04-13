@@ -207,12 +207,21 @@ ethercat:
           dataType: "U16"
           action: "read"
         - step:
-          name: "fault reset"
+          name: "fault reset high"
           address: 0x6040
           subindex: 0x00
-          value: "11001111"
-          delay: 150000
-          isBinary: true
+          value: "0x0080"
+          delay: 100000
+          isBinary: false
+          dataType: "U16"
+          action: "write"
+        - step:
+          name: "fault reset low"
+          address: 0x6040
+          subindex: 0x00
+          value: "0x0000"
+          delay: 50000
+          isBinary: false
           dataType: "U16"
           action: "write"
         - step:
@@ -254,6 +263,15 @@ ethercat:
     - operation:
       name: resetMultiTurn
       steps:
+        - step:
+          name: "set status word"
+          address: 0x6040
+          subindex: 0x00
+          value: "0x7"
+          delay: 0
+          isBinary: false
+          dataType: "U16"
+          action: "write"
         - step:
           name: "special function setting 9"
           address: 0x4D01
