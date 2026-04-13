@@ -1,0 +1,252 @@
+<ion-view>
+	<ion-nav-title class="title-center">
+      <img menu-toggle="left" src="images/logo.png"/ style="height:30px;">
+      <span style="padding-left:4px;font-size: 12px !important;font-weight: bold;">
+        SINGLE AXIS CONTROLLER
+      </span>
+  </ion-nav-title>
+  <ion-content>
+		<div class="column" style="padding-top:10px;width:100%;position:relative;top:150px;overflow-y:scroll;">
+			<div style="height:50px;background-color: #393e5c;width:100%;
+					border-top:2px solid #1bbc9b;display: flex;flex-direction: row;
+					align-items: center;justify-content: center;">
+				<span style="color: #1bbc9b">Machine Parameters</span>
+			</div>
+			<div class="row" style="height:100%;background-color:rgb(39,46,73);">
+				<div class="col col-75" style="background-color:rgb(31,41,63)">
+					<div class="row" style="width:100%;height:100%">
+						<div class="col col-20" style="padding:0px;">
+							<div
+							ng-class="whatClassIsIt('ecs')" ng-click="toggle('ecs')">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									ECS
+								</div>
+								<div class="row" style="height: 2px;
+							    width: 25px;
+							    border-bottom: green;
+							    background: green;
+							    padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;font-size:20px;">
+									{{params.ecs}}
+								</div>
+							</div>
+							<div style="border-top: 0px;" ng-class="whatClassIsIt('home_dir')" ng-click="toggle('home_dir')">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									HOME DIR
+								</div>
+								<div class="row" style="height: 2px;
+							    width: 25px;
+							    border-bottom: green;
+							    background: green;
+							    padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;font-size:20px;">
+									{{tmp_home_dir}}
+								</div>
+							</div>
+							<!--<div style="border-top: 0px;" ng-class="whatClassIsIt('fin_signal')" ng-click="toggle('fin_signal')">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									FIN SIGNAL
+								</div>
+								<div class="row" style="height: 2px;
+							    width: 25px;
+							    border-bottom: green;
+							    background: green;
+							    padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;font-size:20px;">
+									{{tmp_fin_signal}}
+								</div>
+							</div>-->
+						</div>
+						<div class="col col-20" style="padding:0px;">
+							<div style="border-left:0px;" ng-class="whatClassIsIt('cl_dl')" ng-click="toggle('cl_dl')">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									CL/DCL
+								</div>
+								<div class="row" style="height: 2px;
+							    width: 25px;
+							    border-bottom: green;
+							    background: green;
+							    padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;font-size:20px;">
+									{{params.cl_dl}}
+								</div>
+							</div>
+							<div style="border-top: 0px;" ng-class="whatClassIsIt('fin_signal')" ng-click="toggle('fin_signal')">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									FIN SIGNAL
+								</div>
+								<div class="row" style="height: 2px;
+							    width: 25px;
+							    border-bottom: green;
+							    background: green;
+							    padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;font-size:20px;">
+									{{tmp_fin_signal}}
+								</div>
+							</div>
+							<div class="col dac-buttons">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									CL/DL TIMING (in ms)
+								</div>
+								<div class="row" style="height: 2px;
+									width: 25px;
+									border-bottom: green;
+									background: green;
+									padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;">
+									<input type="text" class="dac_text" ng-model="params.timing" ng-virtual-keyboard="keyboard_options">
+								</div>
+							</div>
+							<!--<div style="border-top: 0px;border-left:0px;" ng-class="whatClassIsIt('motor_dir')" ng-click="toggle('motor_dir')">
+								<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+									MOTOR DIR
+								</div>
+								<div class="row" style="height: 2px;
+							    width: 25px;
+							    border-bottom: green;
+							    background: green;
+							    padding: 1px;"
+								>
+								</div>
+								<div class="row dac-button-content" style="padding-top:10px;font-size:20px;">
+									{{tmp_motor_dir}}
+								</div>
+							</div>-->
+						</div>
+						<div class="col" style="padding:0px;">
+							<div class="row" style="width:100%;height:100%; padding:0px;">
+								<div class="col col-50" style="padding:0px;">
+									<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											JOG FEED
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.jog_feed" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>
+									<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											POT
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.pot" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>
+
+									<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											NOT
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.not" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>
+									<!--<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											CL/DL TIMING (in ms)
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.timing" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>-->
+								</div>
+								<div class="col col-50" style="padding:0px;">
+									<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											HOME OFFSET
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.homing_offset" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>
+									<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											WORK OFFSET
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.work_offset" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>
+									<div class="col dac-buttons">
+										<div class="row dac-button-content-head" style="padding-bottom:15px;font-size:12px;">
+											BACKLASH
+										</div>
+										<div class="row" style="height: 2px;
+									    width: 25px;
+									    border-bottom: green;
+									    background: green;
+									    padding: 1px;"
+										>
+										</div>
+										<div class="row dac-button-content" style="padding-top:10px;">
+											<input type="text" class="dac_text" ng-model="params.back_lash" ng-virtual-keyboard="keyboard_options">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-25">
+					<button class="pgm_btn color1" ng-click="udpate_settings()">SAVE</button>
+					<button class="pgm_btn color2" ng-click="resetMultiTurnData()">RESET MULTITURN DATA</button>
+					<button class="pgm_btn color3" ng-click="back()">EXIT</button>
+				</div>
+			</div>
+		</div>
+  </ion-content>
+</ion-view>

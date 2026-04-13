@@ -1,0 +1,24 @@
+---
+devices:
+    - device:
+      name: A
+      vendor-id: 0x0000066f
+      product-code: 0x60380008
+      #1333.3334*90 this const is multiplied by jog feed rate to get the rpm
+      rpm-const: 120000.006
+      drive-x-ratio: 20000
+      alias: 0
+      id: 0
+      address-config-name: a6minas
+      address-config-file: "/configs/a6minas.yml"
+      pot-not-threshold: 1.5
+      # stop-when-hardware-potnot set to true and system will stop rotation when hardware pot/not detected from the driver
+      stop-when-hardware-potnot: true
+      # io-poll-interval should be in microseconds
+      io-poll-interval: 10000
+    # - device:
+    #   name: B
+    #   vendor-id: 0x0000066f
+    #   product-code: 0x535300a1
+    #   alias: 1
+    #   id: 1

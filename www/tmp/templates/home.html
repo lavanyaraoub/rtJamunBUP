@@ -1,0 +1,47 @@
+<ion-view>
+  <ion-nav-title class="title-center">
+    <div style="display:flex;flex-direction:row;justify-content:space-between;">
+      <div>
+        <img src="./images/logo.png" style="height:30px;"/>
+        <span style="font-size: 12px !important;font-weight: bold;">
+          SINGLE AXIS CONTROLLER
+        </span>
+      </div>
+      <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;" ng-click="refreshbutton()">
+        <img src="./images/refresh.png" style="height:30px;"/>
+      </div>
+    </div>
+
+  </ion-nav-title>
+  <ion-content style="background:./images/main_bg.png">
+    <div style="height:100%;width:100%; color:white; background-image: url('./images/main_bg.png');
+    background-repeat: no-repeat;background-size:cover;">
+      <div class="row" style="display:flex;flex-direction:row;justify-content:center; align-items:center;height:40%;">
+        <img src="./images/logo_main.png" style="width:300px;padding-top:80px;"/>
+      </div>
+      <div class="row" style="display:flex;flex-direction:row;
+      justify-content:center;height:50%;padding-left:50px;padding-right:50px;padding-top:60px;">
+        <div class="col-25 col_flex">
+          <button ng-click="next('manual')" class="home_btn">
+            <img src="./images/manual.png" class="home_icons"/>
+          </button>
+        </div>
+        <div class="col-25 col_flex">
+          <button ng-click="next('program')" class="home_btn">
+            <img src="./images/program.png" class="home_icons"/>
+          </button>
+        </div>
+        <div class="col-25 col_flex">
+          <button ng-click="next('auto')" class="home_btn">
+            <img src="./images/auto.png" class="home_icons"/>
+          </button>
+        </div>
+        <div class="col-25 col_flex">
+          <button ng-click="next('settings')" class="home_btn">
+            <img src="./images/settings.png" class="home_icons"/>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

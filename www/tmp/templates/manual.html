@@ -1,0 +1,100 @@
+
+<ion-view cache-view="false">
+  <script>
+    document.getElementById('text').onkeydown = new function(event){return false}
+  </script>
+<!--menu-toggle="left"-->
+  <ion-nav-title class="title-center">
+      <img menu-toggle="left" src="./images/logo.png"/ style="height:30px;">
+      <span style="padding-left:4px;font-size: 12px !important;font-weight: bold;">
+        SINGLE AXIS CONTROLLER
+      </span>
+  </ion-nav-title>
+  <ion-content>
+    <div style="height:100%;position:fixed;top:150px;width:100%;">
+      <div class="row" style="width:100%">
+        <div class="col col-75">
+          <div class="row" style="padding-top:20px;">
+            <img ng-src="{{dir1_img}}" class="pad-left" ng-click="setDirection(1)"/>
+            <img src="./images/middle-section.png" class="pad"/>
+            <img src="{{dir2_img}}" class="pad-right" ng-click="setDirection(0)"/>
+          </div>
+          <div class="row zero_ref_button">
+            <button class="zref_btn" ng-click="openModal()">MDI</button>
+            <button class="zref_btn color1" ng-click="zeroRef()" style="margin-left:20px;">ZERO REF</button>
+          </div>
+        </div>
+        <div class="col col-25" style="padding-top:40px;padding-right:15px;">
+          <div style="height:60px;">
+            <button style="float:left;" ng-class="jog_mode_button" ng-click="setMode('jog')">JOG</button>
+            <button style="float:left;" ng-class="step_mode_button" ng-click="setMode('step')">STEP</button>
+          </div>
+          <div style="padding-top:20px;padding-bottom:20px;" class="green_text" ng-show="mode == 'jog'">
+
+          </div>
+          <div ng-show="mode == 'jog'">
+
+          </div>
+          <div style="padding-bottom:12px;padding-top:50px;" ng-show="mode == 'jog'">
+            <button class="green_trans_button" ng-click="start_operation()">
+              {{display_text}}
+            </button>
+          </div>
+          <div style="padding-top:30px;" class="green_text" ng-hide="mode == 'jog'">
+            STEP SIZE
+          </div>
+          <div class="row" style="padding-top:15px;" ng-hide="mode == 'jog'">
+            <button ng-class="step_btn_01" style="border-right:0px;" ng-click="setStep(1)">0.1</button>
+            <button ng-class="step_btn_001" style="border-right:0px;" ng-click="setStep(2)">0.01</button>
+            <button ng-class="step_btn_0001" ng-click="setStep(3)">0.001</button>
+          </div>
+          <div style="padding-bottom:12px;padding-top:40px;" ng-hide="mode == 'jog'">
+            <button class="green_trans_button" ng-click="start_operation()">
+              MOVE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script id="mdi_program.html" type="text/ng-template" cache-view="false">
+      <div class="modal_style">
+        <div class="modal_style">
+          <!--<div class="modal_header" ng-click="closeModal()">
+            File Contents
+            <span style="float:right;"><button class="button button-icon icon ion-android-close" ng-click="closeModal()" style="color:white"></button></span>
+          </div>-->
+          <ion-header-bar align-title="left" class="bar_menu">
+             <h1 class="title" style="padding-left:10px;font-size:14px;font-weight:400;color:rgb(253,130,119)">PROGRAM</h1>
+             <!-- <div style="margin-right:20px;">
+                 <span style="color: #1bbc9b">Line No: </span>
+                 <span style="color:#1bbc9b" id="lineno"></span>
+             </div> -->
+             <button class="button button-icon icon ion-android-close" ng-click="closeModal()" style="color:white"></button>
+         </ion-header-bar>
+          <div class="modal_body" style="margin-top:40px;">
+            <div class="row" style="height:100%">
+              <div class="col col-67">
+                  <textarea class="code-area" ng-model="p.pgm_code_area" ng-virtual-keyboard="keyboard_options">
+                  </textarea>
+                  <div class="row" style="padding-top:20px;">
+                </div>
+              </div>
+              <div class="col">
+                <button class="pgm_btn color1" ng-click="run_mdi()">RUN</button>
+                <button class="pgm_btn color2" ng-click="closeModal()">CANCEL</button>
+                <button class="pgm_btn color3" ng-click="stop_execution()">STOP</button>
+                <div> {{message}} </div>
+                <!--<button class="pgm_btn color5">DUPLICATE</button>-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </script>
+
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,290 @@
+<div ng-controller="PositionCtrl" style="display:flex;flex-direction:row;height:110px;width:100%;background-color: #272d4a;margin-top: 43px;
+position: fixed;
+top: 0;z-index:5;" >
+    <div style="flex-direction:column;flex-basis:70%;display: flex;align-items: center;justify-content: center;">
+      <div style="display: flex;flex-direction: row;background-color: #272D4A;height:100px;width:98%;">
+        <div style="flex-basis:20%;background-color: #2b3252;border-color:#2b3252;flex-direction: column;">
+          <div style="flex-direction:column;display: flex;height:50px;justify-content:flex-end;">
+            <span style="margin-left: 10px;font-size: 11px;color:#fb7f72">SCREEN</span>
+            <div style="margin-left: 10px;margin-top: 5px;height: 1px;width: 11px;background-color: #fb7f72;margin-bottom: 5px;"></div>
+          </div>
+          <div style="height:50px">
+            <div style="color:white; margin-left:8px;margin-top:3px; font-size:18px;">{{name}}</div>
+            <!--<span style="margin-left: 8px;color: white;font-size: 18px;">{{name}}</span>-->
+          </div>
+        </div>
+        <div style="display:flex;flex-basis:20%;flex-direction: row">
+          <div style="flex-basis:45%;display:flex;flex-direction: column">
+            <div style="height:33px;display: flex;flex-direction: row;align-items: center;    justify-content: center;">
+              <span style="color:#2dcc70;font-size: 11px;font-weight: 400;">EN</span>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;    justify-content: center;">
+              <img ng-src="./images/green_l.png" style="height:30px;">
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-end;    justify-content: center;" >
+              <img ng-src="./images/red_l.png" style="height:30px;">
+            </div>
+          </div>
+          <div style="flex-basis:43%;display:flex;flex-direction: column">
+            <div style="height:33px;display: flex;flex-direction: row;align-items: center;    justify-content: flex-start;">
+              <span style="color:#00a2e1;font-size: 11px;font-weight: 400;">AXIS</span>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;    justify-content: flex-start;">
+              <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;height:30px;width:30px;border-radius: 3px;border:1px solid #2d3e50;">
+                <span style="color:#00a2e1">A</span>
+              </div>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-end;    justify-content: flex-start;" >
+              <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;height:30px;width:30px;border-radius: 3px;border:1px solid #2d3e50;">
+                <span style="color:#2d3e50">B</span>
+              </div>
+            </div>
+          </div>
+          <div style="flex-basis:10%;display:flex;flex-direction: column">
+            <div style="height: 33px;">
+
+            </div>
+            <div style="height: 66px;flex-direction: row;display: flex;align-items: center;justify-content: flex-start;">
+              <div style="height: 50px;width:1px;background-color: #2d3e50">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="flex-basis:50%;display: flex;flex-direction: row;">
+          <div style="flex-basis:47%;display:flex;flex-direction: column">
+            <div style="height:33px;display: flex;flex-direction: row;align-items: center;    justify-content: center;">
+              <span style="color:white;font-size: 11px;font-weight: 400;">ACTUAL POSITION</span>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;    justify-content: center;"
+            ng-click="pos_openModal()">
+              <div style="display:flex;flex-direction:row;align-items:center;
+                    justify-content:flex-end;padding-right:5px;height:30px;
+                    width:104px;border-radius: 3px;border:1px solid #2d3e50;color:#00a2e1;">
+                <span style="color:#00a2e1" id="x_cur"></span>
+              </div>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-end;    justify-content: center;" >
+              <div style="display:flex;flex-direction:row;align-items:center;justify-content:flex-end;padding-right:5px;height:30px;width:104px;border-radius: 3px;border:1px solid #2d3e50;">
+                <span style="color:#00a2e1"></span>
+              </div>
+            </div>
+          </div>
+          <div style="flex-basis:45%;display:flex;flex-direction: column">
+            <div style="height:33px;display: flex;flex-direction: row;align-items: center;    justify-content: flex-start;">
+              <span style="color:white;font-size: 11px;font-weight: 400;">DESTINATION</span>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;    justify-content: flex-start;">
+              <div style="display:flex;flex-direction:row;align-items:center;justify-content:flex-end;padding-right:5px;height:30px;width:104px;border-radius: 3px;border:1px solid #2d3e50;">
+                <span style="color:#00a2e1" id="x_dest">
+                </span>
+              </div>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-end;    justify-content: flex-start;" >
+              <div style="display:flex;flex-direction:row;align-items:center;justify-content:flex-end;padding-right:5px;height:30px;width:104px;border-radius: 3px;border:1px solid #2d3e50;">
+                <span style="color:#2d3e50">B</span>
+              </div>
+            </div>
+          </div>
+          <div style="flex-basis:5%;display:flex;flex-direction: column;align-items: center;">
+            <div style="height: 33px;">
+
+            </div>
+            <div style="height: 66px;flex-direction: row;display: flex;align-items: center;justify-content: flex-start;">
+              <div style="height: 50px;width:1px;background-color: #2d3e50">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="flex-basis:6%">
+          <div style="flex-basis:100%;display:flex;flex-direction: column">
+            <div style="height:33px;display: flex;flex-direction: row;align-items: center;    justify-content: flex-start;">
+              <span style="color:#f65459;font-size: 11px;font-weight: 400;">FAULT</span>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;    justify-content: flex-start;"
+              ng-click="a_modal.show();"
+            >
+              <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;    justify-content: center;">
+                <img ng-src="{{fault_img}}" style="height:30px;">
+              </div>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-end;    justify-content: flex-start;" >
+              <div style="height:30px;width:30px;border-radius: 3px;border:1px solid #2d3e50;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;flex-basis:5%;display: flex;background-color: #4d5375">
+      <span style="font-size:12;">S</span>
+      <span style="font-size:12;">T</span>
+      <span style="font-size:12;">A</span>
+      <span style="font-size:12;">T</span>
+      <span style="font-size:12;">U</span>
+      <span style="font-size:12;">S</span>
+    </div>
+    <div style="flex-basis:25%;display: flex;flex-direction: row;">
+      <div style="flex-basis:40%;justify-content: space-between;display: flex;flex-direction: row;padding: 5px;background-color: #2e3553;">
+        <div style="display:flex;flex-direction: column">
+            <div style="height:33px;display: flex;flex-direction: row;align-items: center;    justify-content: center;">
+              <span style="color:#2dcc70;font-size: 11px;font-weight:400;">Input/Output</span>
+            </div>
+            <div style="height:33px;display: flex;flex-direction: row;align-items: flex-start;justify-content: center;" ng-click="modal.show()">
+              <img ng-src="./images/green_l.png" style="height:35px;">
+            </div>
+        </div>
+      </div>
+      <div style="flex-basis:60%;display: flex;flex-direction: column;align-items: center;">
+        <button style="width:98px;margin-bottom: 10px;margin-top: 20px;background-color: #ef473a;color: white;"
+          class="button button-small button-outline button-assertive emg_btn" ng-click="toggleEmergency()">
+          EMERGENCY
+        </button>
+        <button style="width:98px;
+        background-color: #00a2e1;
+        outline: none;
+        border: 0px;
+        color: white !important;"
+        class="button button-small button-outline button-assertive reset_btn" ng-click="resetAlarms()">
+          RESET
+        </button>
+      </div>
+    </div>
+</div>
+
+
+<script id="templates/io-sheet.html" type="text/ng-template">
+    <ion-bottom-sheet-view style="left:0; width:100%;height:30%;" cache-view="false">
+       <ion-header-bar align-title="left" class="bar_menu">
+          <h1 class="title" style="padding-left:10px;font-size:14px;font-weight:400;color:rgb(253,130,119)">IO STATUS</h1>
+          <button class="button button-icon icon ion-android-close" ng-click="modal.hide()" style="color:white"></button>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <div class="row" style="color:white; font-size:12; font-weight:200;">
+          <div class="col-10 io-heading">
+            ECS
+          </div>
+          <div class="col-10 io-heading">
+            FIN
+          </div>
+          <div class="col-10 io-heading">
+            SOL O/P
+          </div>
+          <div class="col-10 io-heading">
+            CL
+          </div>
+          <div class="col-10 io-heading">
+            DCL
+          </div>
+          <div class="col-10 io-heading">
+            ALM-IN
+          </div>
+          <div class="col-10 io-heading">
+            ALM-OUT
+          </div>
+          <div class="col-10 io-heading">
+            HOME
+          </div>
+          <div class="col-10 io-heading">
+            POT
+          </div>
+          <div class="col-10 io-heading">
+            NOT
+          </div>
+        </div>
+        <div class="row" style="color:white; font-size:12; font-weight:200;padding-top:10px;">
+          <div class="col-10 io-heading">
+            <img ng-src="{{ecs}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img ng-src="{{fin}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img src="images/off.png">
+          </div>
+          <div class="col-10 io-heading">
+            <img src="{{cl}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img src="{{dcl}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img src="{{almin}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img src="images/off.png">
+          </div>
+          <div class="col-10 io-heading">
+            <img ng-src="{{home}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img src="{{not}}">
+          </div>
+          <div class="col-10 io-heading">
+            <img ng-src="{{pot}}">
+          </div>
+        </div>
+        <div class="row">
+        </div>
+      </ion-content>
+    </ion-bottom-sheet-view>
+</script>
+
+
+<script id="templates/alarm-sheet.html" type="text/ng-template">
+    <ion-bottom-sheet-view style="left:0; width:100%;height:30%;" cache-view="false">
+       <ion-header-bar align-title="left" class="bar_menu">
+          <h1 class="title" style="padding-left:10px;font-size:14px;font-weight:400;color:rgb(253,130,119)">ALARM STATUS</h1>
+          <button class="button button-icon icon ion-android-close" ng-click="a_modal.hide()" style="color:white"></button>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <div class="row" style="color:white; font-size:12; font-weight:200;">
+            <div class="col col-25" style="color: #29b597;">
+              ALARMS/ERRORS
+            </div>
+            <div class="col col-75">
+              <div class="message" style="    color: #d2c0c0;
+    font-weight: bold;">{{alarm_message}}</div>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+      </ion-content>
+    </ion-bottom-sheet-view>
+</script>
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <span class="pull-right" style="display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: cornflowerblue;
+    text-decoration: underline;" ng-click="pos_closeModal()">Close</span>
+    </ion-header-bar>
+    <ion-content style="padding-top:50px;">
+      <div class="row" style="color:white; font-size:30px; font-weight:200;">
+          <div class="col col-30" style="color: #29b597;">
+            Current
+          </div>
+          <div class="col col-70">
+            <b><span id="x1_cur" style="font-size:30px;"></span></b>
+          </div>
+      </div>
+      <br><br><br>
+      <div class="row" style="color:white; font-size:30px; font-weight:200;">
+          <div class="col col-30" style="color: #29b597;">
+            Destination
+          </div>
+          <div class="col col-70">
+            <b><span id="x1_dest"></span></b>
+          </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>

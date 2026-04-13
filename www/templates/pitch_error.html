@@ -1,0 +1,100 @@
+<ion-view>
+	<ion-nav-title class="title-center">
+      <img menu-toggle="left" src="./images/logo.png"/ style="height:30px;">
+      <span style="padding-left:4px;font-size: 12px !important;font-weight: bold;">
+        SINGLE AXIS CONTROLLER
+      </span>
+  </ion-nav-title>
+  <ion-content>
+		<div class="column" style="padding-top:10px;width:100%;position:fixed;top:150px;height:100%;">
+			<div style="height:50px;background-color: #393e5c;width:100%;
+					border-top:2px solid #1bbc9b;display: flex;flex-direction: row;
+					align-items: center;justify-content: center;">
+				<span style="color: #1bbc9b">PITCH ERROR</span>
+			</div>
+			<div class="row" style="height:100%;background-color:rgb(39,46,73);overflow-y:scroll;">
+				<div class="col col-80" style="height:750px;">
+					<div class="row" style="width:100%;height:100%; overflow-y:scroll;">
+						<div class="col col-25" style="padding-right:2px;">
+							<div class="pitch-header row">
+								<div class="col col-50 h_l_1">
+									DEGREE
+								</div>
+								<div class="col col-50 h_r_1">
+									VALUE
+								</div>
+							</div>
+							<div class="pitch-content row" ng-repeat="a in params1 track by $index">
+								<div class="col col-50 l_1">
+									{{($index+1)*10}}
+								</div>
+								<div class="col col-50 r_1">
+									<input type="text" ng-value="a" ng-model="pr[$index]" class="p-value" id={{$index}} ng-virtual-keyboard="{kt: 'Numerico'}" ng-virtual-keyboard-layout="numeric">
+								</div>
+							</div>
+						</div>
+						<div class="col col-25" style="padding-right:2px;">
+							<div class="pitch-header row">
+								<div class="col col-50 h_l_1">
+									DEGREE
+								</div>
+								<div class="col col-50 h_r_1">
+									VALUE
+								</div>
+							</div>
+							<div class="pitch-content row" ng-repeat="a in params2 track by $index">
+								<div class="col col-50 l_1">
+									{{($index+10)*10}}
+								</div>
+								<div class="col col-50 r_1">
+									<input type="text" ng-value="a" ng-model="p[$index+9]" class="p-value" id={{$index+9}} ng-virtual-keyboard="{kt: 'Numerico'}" ng-virtual-keyboard-layout="numeric">
+								</div>
+							</div>
+						</div>
+						<div class="col col-25" style="padding-right:2px;">
+							<div class="pitch-header row">
+								<div class="col col-50 h_l_1">
+									DEGREE
+								</div>
+								<div class="col col-50 h_r_1">
+									VALUE
+								</div>
+							</div>
+							<div class="pitch-content row" ng-repeat="a in params3 track by $index">
+								<div class="col col-50 l_1">
+									{{($index+19)*10}}
+								</div>
+								<div class="col col-50 r_1">
+									<input type="text" ng-value="a" ng-model="p[$index+18]" class="p-value" id={{$index+18}} ng-virtual-keyboard="{kt: 'Numerico'}" ng-virtual-keyboard-layout="numeric">
+								</div>
+							</div>
+						</div>
+						<div class="col col-25" style="padding-right:2px;">
+							<div class="pitch-header row">
+								<div class="col col-50 h_l_1">
+									DEGREE
+								</div>
+								<div class="col col-50 h_r_1">
+									VALUE
+								</div>
+							</div>
+							<div class="pitch-content row" ng-repeat="a in params4 track by $index">
+								<div class="col col-50 l_1">
+									{{($index+28)*10}}
+								</div>
+								<div class="col col-50 r_1">
+									<input type="text" ng-value="a" ng-model="p[$index+27]" class="p-value" id={{$index+27}} ng-virtual-keyboard="{kt: 'Numerico'}" ng-virtual-keyboard-layout="numeric">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-20">
+					<button class="pgm_btn color1" ng-click="update_pe()">SAVE</button>
+					<button class="pgm_btn color3" ng-click="back()">EXIT</button>
+					<span style="color:white;">{{message}}</span>
+				</div>
+			</div>
+		</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,141 @@
+<ion-view>
+
+	<ion-nav-title class="title-center">
+      <img menu-toggle="left" src="./images/logo.png"/ style="height:30px;">
+      <span style="padding-left:4px;font-size: 12px !important;font-weight: bold;">
+        SINGLE AXIS CONTROLLER
+      </span>
+  </ion-nav-title>
+
+
+  <ion-content>
+
+	<!-- -->
+	<!-- settings screen 2 -->
+	<div style="flex-direction: row;flex: 1;height: 100%;display: flex;align-items: center;justify-content: center;">
+		<div style="display: flex;height: 160px;width:500px;background-color: white;flex-direction: row;border-radius: 12px;">
+
+			<div style="display: flex;flex-basis: 25%;flex-direction: column;">
+				<div style="height:105px;background-color: #31354f;flex-direction: row;align-items: center;justify-content: center;display: flex;border-top-left-radius: 4px;">
+					<img ng-src="./images/lock.png" style="height:80px;">
+				</div>
+				<div style="height:55px;background-color: #40445e;flex;border-bottom-left-radius: 4px;flex-direction: row;align-items: center;justify-content: center;display: flex;">
+					<button style="background-color: #f65459;width: 77px;border-radius: 2px;" class="button button-small button-assertive">
+						< BACK
+					</button>
+				</div>
+			</div>
+			<div style="display: flex;flex-basis: 75%;flex-direction: column;">
+				<div style="height:160px;background-color: #1f2840;flex;border-top-right-radius: 4px;display: flex;flex-direction: column">
+					<div style="height:40px;display: flex;flex-direction: row;align-items: flex-end;justify-content: center;">
+						<span style="color:white;font-size: 16px;">Settings</span>
+					</div>
+					<div style="height:20px;display: flex;flex-direction: row;align-items: center;justify-content: center;">
+						<div style="width:20px;background-color: #393e5c;height: 1px"></div>
+					</div>
+					<div>
+					</div>
+					<div style="justify-content:space-around;height:65px;display: flex;flex-direction:row;margin-top: 10px;">
+						<div class="s2" style="display: flex;flex-direction: row;" ng-click="goto_dac()">
+							<div style="width:2px;background-color: #fb7f72;">
+							</div>
+							<div >
+								<div style="height:31px;display: flex;flex-direction: row;align-items: flex-end;" >
+									<span class="orange">MACHINE</span>
+								</div>
+								<div style="height: 5px;">
+								</div>
+								<div style="height:31px;">
+									<span class="orange">PARAMETERS</span>
+								</div>
+							</div>
+						</div>
+						<div class="s2" ng-click="goto_pitch_error()" style="border-left:3px solid yellow">
+							<div class="s2" style="display: flex;flex-direction: row;">
+								<div style="width:2px;background-color: #f39c11;">
+								</div>
+								<div>
+									<div style="height:31px;display: flex;flex-direction: row;align-items: flex-end;">
+										<span class="yellow">PITCH</span>
+									</div>
+									<div style="height: 5px;">
+									</div>
+									<div style="height:31px;">
+										<span class="yellow">ERROR</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="s2" ng-click="goto_drive_offset()" style="border-left:3px solid green">
+							<div class="s2" style="display: flex;flex-direction: row;">
+								<div style="width:2px;background-color: #f39c11;">
+								</div>
+								<div>
+									<div style="height:31px;display: flex;flex-direction: row;align-items: flex-end;">
+										<span class="yellow">DRIVE</span>
+									</div>
+									<div style="height: 5px;">
+									</div>
+									<div style="height:31px;">
+										<span class="yellow">OFFSET</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+	<!-- screen 4 -->
+		<!--<div style="flex-direction: row;flex: 1;height: 60%;display: flex;align-items: center;justify-content: center;">
+			<div style="display: flex;height: 160px;width:500px;background-color: white;flex-direction: row;border-radius: 12px;">
+
+				<div style="display: flex;flex-basis: 25%;flex-direction: column;">
+					<div style="height:105px;background-color: #31354f;flex-direction: row;align-items: center;justify-content: center;display: flex;border-top-left-radius: 4px;">
+						<img ng-src="/images/lock.png" style="height:80px;">
+					</div>
+					<div style="height:55px;background-color: #40445e;flex;border-bottom-left-radius: 4px;flex-direction: row;align-items: center;justify-content: center;display: flex;">
+						<button style="background-color: #f65459;width: 77px;border-radius: 2px;" class="button button-small button-assertive">
+							< BACK
+						</button>
+					</div>
+				</div>
+				<div style="display: flex;flex-basis: 75%;flex-direction: column;">
+					<div style="height:105px;background-color: #1f2840;flex;border-top-right-radius: 4px;display: flex;flex-direction: column">
+						<div style="height:52.5px;display: flex;flex-direction: row;align-items: flex-end;justify-content: center;">
+							<span style="color:#8288a8;font-size: 16px;">Please enter your password to access</span>
+						</div>
+						<div style="height:52.5px">
+							<span style="color:white;display: flex;justify-content: center;">pitch error<span>
+						</div>
+					</div>
+					<div style="height:55px;background-color: #1c2335;flex;border-bottom-right-radius: 4px;display: flex;flex-direction: row;align-items: center;justify-content: space-around;">
+						<label class="item item-input" style="height: 31px;width: 200px;border:0.5px solid #7e8c8d;">
+							  <input type="text">
+						</label>
+						<button style="background-color: #27ae61;width: 125px;border-radius: 2px;display: flex; flex-direction: row;justify-content: space-around;" class="button button-small button-assertive">
+							<img ng-src="/images/unlock.png" style="height:22px;">GET ACCESS
+						</button>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	<!-- -->
+	<!-- screen 3 -->
+		<!--<div style="height: 68%;display: flex;flex-direction: row;align-items: flex-end;">
+			<div style="display: flex;flex-direction:column;height: 97%;flex-basis: 100%;">
+				<div style="height:15%;background-color: #393e5c;border-top:2px solid #1bbc9b;">
+
+				</div>
+				<div style="height:85%;background-color: #272d4a;">
+					<div style="height: 90%;width:90%;">
+					</div>
+				</div>
+			</div>
+		</div>-->
+	<!-- -->
+  </ion-content>
+</ion-view>
+

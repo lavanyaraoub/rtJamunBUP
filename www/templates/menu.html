@@ -1,0 +1,36 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <div ng-include src="'templates/position.html'" ng-show="show"></div>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content style="padding-top:25px;">
+      <ion-list class="menu_item">
+        <ion-item menu-close href="#/app/home" class="menu_item" style="border-top:0px;">
+          Home
+        </ion-item>
+        <ion-item menu-close href="#/app/manual" class="menu_item">
+          Manual
+        </ion-item>
+        <ion-item menu-close href="#/app/program" class="menu_item">
+          Program
+        </ion-item>
+        <ion-item menu-close href="#/app/auto" class="menu_item">
+          Auto
+        </ion-item>
+        <ion-item menu-close href="#/app/settings" class="menu_item">
+          Settings
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,157 @@
+<ion-view>
+  <ion-nav-title class="title-center">
+      <img menu-toggle="left" src="./images/logo.png"/ style="height:30px;">
+      <span style="padding-left:4px;font-size: 12px !important;font-weight: bold;">
+        SINGLE AXIS CONTROLLER
+      </span>
+  </ion-nav-title>
+  <ion-content>
+
+	<div style="height: 68%;display: flex;flex-direction: row;align-items: flex-end;position:fixed;top:150px;width:100%">
+		<div style="display: flex;flex-direction:column;height: 97%;flex-basis: 100%;">
+			<div style="height:15%;background-color: #393e5c;border-top:2px solid #1bbc9b;display: flex;flex-direction: row;align-items: center;justify-content: left;">
+				<span style="color: #1bbc9b"><pre> PROGRAM:  </pre></span>
+        <span style="color:#1bbc9b" id="progname"></span>
+			</div>
+			<div style="height:85%;background-color: #272d4a;padding:12px;">
+				<div style="height: 100%;width:100%;display: flex;flex-direction: row;">
+					<div style="flex-basis: 80%;display: flex;flex-direction: column;">
+						<div style="height:500px;background-color: #171f36;display: flex;flex-direction: row;">
+							<div style="flex-basis: 100%;overflow-y: scroll;">
+								<ul>
+									<li>
+										<div ng-repeat="a in array" style="border-bottom: 1px solid #272d4a;display: flex;flex-direction: row;" ng-if="!($index%2!==0)">
+											<div style="width:50%;align-items: center;display: flex;height: 35px;padding-left: 10px;border-right: 1px solid #272d4a;"
+                      ng-click="openFile($index)">
+												<div style="margin-right: 3px;border-radius: 2px;height: 20px;width: 20px;background-color: white;display: flex;flex-direction: row;align-items: center;justify-content: center;">
+													<span style="font-size: 13px;color:#171f36;">
+														{{$index+1}}
+													</span>
+												</div>
+												&nbsp;
+												<img style="height:15px;" src="./images/program_file.png">
+												&nbsp; <span style="color: white;font-size: 13px;">{{a}}</span>
+											</div>
+											<div style="width:50%;align-items: center;display: flex;height: 35px;padding-left: 10px;border-right: 1px solid #272d4a;"
+                      ng-if="array[$index+1]" ng-click="openFile($index+1)">
+												<div style="margin-right: 3px;border-radius: 2px;height: 20px;width: 20px;background-color: white;display: flex;flex-direction: row;align-items: center;justify-content: center;">
+													<span style="font-size: 13px;color:#171f36;">
+														{{$index+2}}
+													</span>
+												</div>
+												&nbsp;
+												<img style="height:15px;" src="./images/program_file.png">
+												&nbsp;
+												 <span style="color: white;font-size: 13px;">{{array[$index+1]}}</span>
+											</div>
+										<div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div style="height:20%;display: flex;flex-direction: row;align-items: flex-end;">
+
+						</div>
+					</div>
+					<div style="flex-basis: 20%;display: flex;flex-direction: column;align-items:center;justify-content: flex-START;">
+						<!--<button class="button button-small button-outline button-green" style="border-color:#1bba99;color:#1bba99;width: 70px;height: 31px;margin-top: 2px;">
+							OPEN
+						</button>-->
+						<button class="pgm_btn color1" ng-click="openModal1()">NEW</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+  <script id="program_contents.html" type="text/ng-template" cache-view="false">
+      <div class="modal_style">
+        <!--<div class="modal_header" ng-click="closeModal()">
+          File Contents
+          <span style="float:right;"><button class="button button-icon icon ion-android-close" ng-click="closeModal()" style="color:white"></button></span>
+        </div>-->
+        <ion-header-bar align-title="left" class="bar_menu">
+           <h1 class="title" style="padding-left:10px;font-size:14px;font-weight:400;color:rgb(253,130,119)">PROGRAM</h1>
+           <button class="button button-icon icon ion-android-close" ng-click="closeModal()" style="color:white"></button>
+       </ion-header-bar>
+        <div class="modal_body" style="margin-top:40px;">
+          <div class="row" style="height:100%">
+            <div class="col col-67">
+                <textarea class="code-area" ng-model="p.code_area" ng-virtual-keyboard="keyboard_options">
+                </textarea>
+                <div class="row" style="padding-top:20px;">
+                <span style="padding-top:10px; padding-right:10px;">File Name :</span>
+                <input type="text" ng-model="p.name" ng-virtual-keyboard
+                style="    width: 150px;
+                        font-size: 16px;
+                        background-color: rgb(86, 90, 113);
+                        font-weight: 200;
+                        color: white;
+                        height: 30px;
+                        padding-left: 10px;
+                        "
+                >
+              </div>
+            </div>
+            <div class="col">
+              <button class="pgm_btn color1" ng-click="save_program()">SAVE</button>
+              <button class="pgm_btn color2" ng-click="rename_program()">RENAME</button>
+              <button class="pgm_btn color3" ng-click="delete_program()">DELETE</button>
+              <button class="pgm_btn color4" ng-click="execute_program()">PROG SELECT TO RUN</button>
+              <div> {{message}} </div>
+              <!--<button class="pgm_btn color5">DUPLICATE</button>-->
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </script>
+
+  <script id="new_program.html" type="text/ng-template" cache-view="false">
+    <div class="modal_style">
+      <div class="modal_style">
+        <!--<div class="modal_header" ng-click="closeModal()">
+          File Contents
+          <span style="float:right;"><button class="button button-icon icon ion-android-close" ng-click="closeModal()" style="color:white"></button></span>
+        </div>-->
+        <ion-header-bar align-title="left" class="bar_menu">
+           <h1 class="title" style="padding-left:10px;font-size:14px;font-weight:400;color:rgb(253,130,119)">PROGRAM</h1>
+           <button class="button button-icon icon ion-android-close" ng-click="closeModal1()" style="color:white"></button>
+       </ion-header-bar>
+        <div class="modal_body" style="margin-top:40px;">
+          <div class="row" style="height:100%">
+            <div class="col col-67">
+                <textarea class="code-area" ng-model="p.pgm_code_area" ng-virtual-keyboard="keyboard_options">
+                </textarea>
+                <div class="row" style="padding-top:20px;">
+                <span style="padding-top:10px; padding-right:10px;">File Name :</span>
+                <input type="text" ng-model="p.prgm" ng-virtual-keyboard
+                style="    width: 150px;
+                        font-size: 16px;
+                        background-color: rgb(86, 90, 113);
+                        font-weight: 200;
+                        color: white;
+                        height: 30px;
+                        padding-left: 10px;
+                        "
+                >
+              </div>
+            </div>
+            <div class="col">
+              <button class="pgm_btn color1" ng-click="new_program()">SAVE</button>
+              <button class="pgm_btn color3" ng-click="closeModal1()">CANCEL</button>
+              <div> {{message}} </div>
+              <!--<button class="pgm_btn color5">DUPLICATE</button>-->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </script>
+
+
+
+  </ion-content>
+</ion-view>

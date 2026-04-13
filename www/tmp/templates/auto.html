@@ -1,0 +1,64 @@
+<ion-view cache-view="false">
+  <ion-nav-title class="title-center">
+      <img menu-toggle="left" src="images/logo.png"/ style="height:30px;">
+      <span style="padding-left:4px;font-size: 12px !important;font-weight: bold;">
+        SINGLE AXIS CONTROLLER
+      </span>
+  </ion-nav-title>
+  <ion-content>
+  	<div style="height: 68%;display: flex;flex-direction: row;align-items: flex-end;position:fixed;top:150px;width:100%;">
+  		<div style="display: flex;flex-direction:column;height: 97%;flex-basis: 100%;">
+  			<div style="height:15%;background-color: #393e5c;border-top:2px solid #1bbc9b;display: flex;flex-direction: row;align-items: center;justify-content: space-between;">
+  				<div>
+            <span style="color: #1bbc9b"><pre>  PROGRAM: {{file_name}}</pre></span>
+          </div>
+          <div style="margin-right:20px;">
+              <span style="color: #1bbc9b">Line No: </span>
+              <span style="color:#1bbc9b" id="lineno">{{lineno}}</span>
+          </div>
+
+          <div ng-show="display">
+            <button class="pgm_btn color1" style="margin-left:0px;    margin-right: 22px; width: 100px;" id="ecsbutton" ng-click="execNextLine()">NEXT BLOCK ></button>
+          </div>
+  			</div>
+  			<div class="row" style="height:85%;background-color: #272d4a;padding:12px;">
+          <div class="col col-75">
+            <div class="code_content list">
+              <div ng-repeat="a in contents track by $index" class="row pgm_line" id="num{{$index}}" ng-click = "selected_line($index)">
+                <span style="color: white;font-size: 12px;
+                  margin-right: 3px;
+                  border-radius: 2px;
+                  height: 20px;
+                  width: 20px;
+                  background-color: white;
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: center;
+                  color:black;
+                  margin-right: 5px;
+                  ">
+                  {{$index+1}}
+                </span>
+                <img style="height: 18px;padding-right: 50px;" src="./images/program_file.png">
+                {{a}}
+              </div>
+            </div>
+          </div>
+          <div class="col col-25">
+            <div style="height:60px;" class="row">
+              <button style="float:left;width:100%;" ng-class="c_mode_button" ng-click="setPgmMode('c')" ng-show="display">Continuous</button>
+              <button style="float:left;width:100%;" ng-class="s_mode_button" ng-click="setPgmMode('s')" ng-show="display">Single Block</button>
+
+            </div>
+
+            <button class="pgm_btn color4" style="width:100%; margin-left:0px;" ng-click="startExecution()">EXECUTE</button>
+            <button class="pgm_btn color2" style="width:100%; margin-left:0px;" ng-click="choose_file()">SELECT PROGRAM</button>
+            <button class="pgm_btn color3" style="width:100%; margin-left:0px;" ng-click="stop_execution()">STOP EXECUTION</button>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
